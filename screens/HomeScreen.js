@@ -7,11 +7,13 @@ import {
   MagnifyingGlassIcon,
   AdjustmentsHorizontalIcon,
 } from "react-native-heroicons/outline";
-import Categories from "../components/categories";
+import Categories from "../components/Categories"
+import FeaturedRow from "../components/FeaturedRow";
+
 
 const HomeScreen = () => {
   return (
-    <SafeAreaView className="bg-white">
+    <SafeAreaView className="">
       {/* The headline */}
       <View className="flex-row pb-3 items-center mx-4 space-x-2">
         <Image
@@ -48,6 +50,21 @@ const HomeScreen = () => {
         <Categories />
 
         {/* featured Rows */}
+        <FeaturedRow 
+          id="123"
+          title="Featured"
+          description="Paid placements from our partners"
+        />
+        <FeaturedRow 
+          id="1234"
+          title="Tasty Discount"
+          description="Find the best deals available"
+        />
+        <FeaturedRow 
+          id="12345"
+          title="Offers near you!"
+          description="support your local restaurants tonight!"
+        />
       </ScrollView>
     </SafeAreaView>
   );
