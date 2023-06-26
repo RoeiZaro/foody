@@ -1,5 +1,5 @@
 import { View, Text, Image, TextInput, ScrollView } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import {
   ChevronDownIcon,
@@ -9,9 +9,24 @@ import {
 } from "react-native-heroicons/outline";
 import Categories from "../components/Categories"
 import FeaturedRow from "../components/FeaturedRow";
+import client from "../sanity";
 
 
 const HomeScreen = () => {
+  const [featuredCategory, setFeaturedCategory] = useState([]);
+
+  useEffect(()=>{
+    client.fetch(`
+      *[_type == 'featured']{
+      ...,
+       restaurants[]->{
+         ...,
+         dishes[]->
+       }
+       }
+    `)
+  },[])
+  
   return (
     <SafeAreaView className="">
       {/* The headline */}
