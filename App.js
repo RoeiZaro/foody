@@ -3,6 +3,8 @@ import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./screens/HomeScreen";
+import "react-native-url-polyfill/auto";
+import RestaurantScreen from "./screens/RestaurantScreen";
 
 // function HomeScreen() {
 //   return (
@@ -23,6 +25,11 @@ export default function App() {
           options={{ headerShown: false }}
           name="Home"
           component={HomeScreen}
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="Restaurant page"
+          component={RestaurantScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

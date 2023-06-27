@@ -7,16 +7,17 @@ import {
   MagnifyingGlassIcon,
   AdjustmentsHorizontalIcon,
 } from "react-native-heroicons/outline";
-import Categories from "../components/Categories"
+import Categories from "../components/Categories";
 import FeaturedRow from "../components/FeaturedRow";
-import client from "../sanity";
-
+import sanityClient from "../sanity";
 
 const HomeScreen = () => {
   const [featuredCategory, setFeaturedCategory] = useState([]);
 
-  useEffect(()=>{
-    client.fetch(`
+  useEffect(() => {
+    sanityClient
+      .fetch(
+        `
       *[_type == 'featured']{
       ...,
        restaurants[]->{
@@ -24,9 +25,11 @@ const HomeScreen = () => {
          dishes[]->
        }
        }
-    `)
-  },[])
-  
+    `
+      )
+      .then((res) => setFeaturedCategory(res));
+  }, []);
+
   return (
     <SafeAreaView className="">
       {/* The headline */}
@@ -65,21 +68,15 @@ const HomeScreen = () => {
         <Categories />
 
         {/* featured Rows */}
-        <FeaturedRow 
-          id="123"
-          title="Featured"
-          description="Paid placements from our partners"
-        />
-        <FeaturedRow 
-          id="1234"
-          title="Tasty Discount"
-          description="Find the best deals available"
-        />
-        <FeaturedRow 
-          id="12345"
-          title="Offers near you!"
-          description="support your local restaurants tonight!"
-        />
+
+        {featuredCategory?.map((category) => (
+          <FeaturedRow
+            id={category._id}
+            key={category._id}
+            title={category.name}
+            description={category.short_description}
+          />
+        ))}
       </ScrollView>
     </SafeAreaView>
   );

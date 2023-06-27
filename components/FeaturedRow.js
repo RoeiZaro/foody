@@ -1,78 +1,67 @@
-import { View, Text, ScrollView } from 'react-native'
-import React from 'react'
-import { ArrowRightIcon } from 'react-native-heroicons/outline'
-import RestaurantCard from './RestaurantCard'
+import { View, Text, ScrollView } from "react-native";
+import React, { useEffect, useState } from "react";
+import { ArrowRightIcon } from "react-native-heroicons/outline";
+import RestaurantCard from "./RestaurantCard";
+import sanityClient from "../sanity";
 
-const FeaturedRow = ({title, description, featuredCategory}) => {
+const FeaturedRow = ({ id, title, description, featuredCategory }) => {
+  const [restaurants, setRestaurants] = useState([]);
+  useEffect(() => {
+    sanityClient
+      .fetch(
+        `
+      *[_type == 'featured' && _id == $id ]{
+      ...,
+       restaurants[]->{
+       ...,
+         dishes[]->,
+         type-> {
+            name
+         }
+        },
+       }[0]
+    `,
+        { id: id }
+      )
+      .then((res) => setRestaurants(res?.restaurants));
+    console.log(restaurants);
+  }, [id]);
+
   return (
     <View>
-        <View className="mt-4 flex-row items-center justify-between px-4">
-            <Text>{title}</Text>   
-            <ArrowRightIcon color="#00CCBB"   />
-        </View>
+      <View className="mt-4 flex-row items-center justify-between px-4">
+        <Text>{title}</Text>
+        <ArrowRightIcon color="#00CCBB" />
+      </View>
 
-        <Text className="text-xs text-gray-500 px-4">{description}</Text>
+      <Text className="text-xs text-gray-500 px-4">{description}</Text>
 
-        <ScrollView 
-            horizontal
-            contentContainerStyle={{
-                paddingHorizontal:15,
-            }}
-            showsHorizontalScrollIndicator={false}
-            className='pt-4'
-        >
-            <RestaurantCard
-                id='123'
-                imgUrl="http://links.papareact.com/wru"
-                title="coolRestaurant"
-                rating={4.5}
-                genre="italian"
-                address='bad stoine'
-                short_description="cool restaurant serving this restaurant and its associated services and services"
-                dishes={[]}
-                long={23412341234}
-                lat={123412341234123}
-            />
-            <RestaurantCard
-                id='123'
-                imgUrl="http://links.papareact.com/wru"
-                title="coolRestaurant"
-                rating={4.5}
-                genre="italian"
-                address='bad stoine'
-                short_description="cool restaurant serving this restaurant and its associated services and services"
-                dishes={[]}
-                long={23412341234}
-                lat={123412341234123}
-            />
-            <RestaurantCard
-                id='123'
-                imgUrl="http://links.papareact.com/wru"
-                title="coolRestaurant"
-                rating={4.5}
-                genre="italian"
-                address='bad stoine'
-                short_description="cool restaurant serving this restaurant and its associated services and services"
-                dishes={[]}
-                long={23412341234}
-                lat={123412341234123}
-            />
-            <RestaurantCard
-                id='123'
-                imgUrl="http://links.papareact.com/wru"
-                title="coolRestaurant"
-                rating={4.5}
-                genre="italian"
-                address='bad stoine'
-                short_description="cool restaurant serving this restaurant and its associated services and services"
-                dishes={[]}
-                long={23412341234}
-                lat={123412341234123}
-            />
-        </ScrollView>
-      
+      <ScrollView
+        horizontal
+        contentContainerStyle={{
+          paddingHorizontal: 15,
+        }}
+        showsHorizontalScrollIndicator={false}
+        className="pt-4"
+      >
+        {restaurants.map((restaurant) => (
+          <RestaurantCard
+            key={restaurant._id}
+            id={restaurant._id}
+            imgUrl={restaurant.image}
+            address={restaurant.address}
+            title={restaurant.name}
+            dishes={restaurant.dishes}
+            rating={restaurant.rating}
+            short_description={restaurant.short_description}
+            genre={restaurant.type?.genre}
+            long={restaurant.longitude}
+            lat={restaurant.latitude}
+          />
+        ))}
+      </ScrollView>
     </View>
-  )
-}
+  );
+};
 
-export default FeaturedRow
+export default FeaturedRow;
