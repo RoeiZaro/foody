@@ -13,7 +13,7 @@ const RestaurantCard = ({
   title,
   rating,
   genre,
-  address,
+  adress,
   short_description,
   dishes,
   long,
@@ -33,7 +33,7 @@ const RestaurantCard = ({
           title,
           rating,
           genre,
-          address,
+          adress,
           short_description,
           dishes,
           long,
@@ -64,7 +64,7 @@ const RestaurantCard = ({
 
         <View className="flex-row items-center space-x-1">
           <MapPinIcon color="gray" opacity={0.4} size={22} />
-          <Text className="text-xs text-gray-500">Nearby - {address}</Text>
+          <Text className="text-xs text-gray-500">Nearby - {adress}</Text>
         </View>
       </View>
     </TouchableOpacity>
