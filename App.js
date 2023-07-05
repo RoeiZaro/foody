@@ -5,33 +5,28 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./screens/HomeScreen";
 import "react-native-url-polyfill/auto";
 import RestaurantScreen from "./screens/RestaurantScreen";
-
-// function HomeScreen() {
-//   return (
-//     <View style={styles.container}>
-//       <Text className="">Open up App.js to start working on your app!</Text>
-//       <StatusBar style="auto" />
-//     </View>
-//   );
-// }
+import { Provider } from "react-redux";
+import { Store } from "@reduxjs/toolkit";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator headerShown="false">
-        <Stack.Screen
-          options={{ headerShown: false }}
-          name="Home"
-          component={HomeScreen}
-        />
-        <Stack.Screen
-          options={{ headerShown: false }}
-          name="Restaurant page"
-          component={RestaurantScreen}
-        />
-      </Stack.Navigator>
+      <Provider store={Store}>
+        <Stack.Navigator headerShown="false">
+          <Stack.Screen
+            options={{ headerShown: false }}
+            name="Home"
+            component={HomeScreen}
+          />
+          <Stack.Screen
+            options={{ headerShown: false }}
+            name="Restaurant page"
+            component={RestaurantScreen}
+          />
+        </Stack.Navigator>
+      </Provider>
     </NavigationContainer>
   );
 }
