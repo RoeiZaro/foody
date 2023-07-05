@@ -6,14 +6,14 @@ import HomeScreen from "./screens/HomeScreen";
 import "react-native-url-polyfill/auto";
 import RestaurantScreen from "./screens/RestaurantScreen";
 import { Provider } from "react-redux";
-import { Store } from "@reduxjs/toolkit";
+import { store } from "./store";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Provider store={Store}>
+      <Provider store={store}>
         <Stack.Navigator headerShown="false">
           <Stack.Screen
             options={{ headerShown: false }}
