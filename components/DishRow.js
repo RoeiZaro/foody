@@ -4,12 +4,16 @@ import Currency from "react-currency-formatter";
 import { urlFor } from "../sanity";
 import { MinusCircleIcon, PlusCircleIcon } from "react-native-heroicons/solid";
 import { useDispatch, useSelector } from "react-redux";
-import { addToBasket, selectBasketItems } from "../reduxSlices/basketSlice";
+import {
+  addToBasket,
+  selectBasketItems,
+  selectBasketItemsById,
+} from "../reduxSlices/basketSlice";
 
 const DishRow = ({ id, name, description, price, image }) => {
   const [isPressed, setIsPressed] = useState(false);
   const dispatch = useDispatch();
-  const items = useSelector(selectBasketItems);
+  const items = useSelector((state) => selectBasketItemsById(state, id));
 
   const addItemToBasket = () => {
     dispatch(addToBasket({ id, name, description, price, image }));
