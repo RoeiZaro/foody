@@ -9,7 +9,7 @@ import {
   removeFromBasket,
   selectBasketItemsById,
 } from "../reduxSlices/basketSlice";
-
+// ADD MORE DATA TO THE ROW
 const DishRow = ({ id, name, description, price, image }) => {
   const [isPressed, setIsPressed] = useState(false);
   const dispatch = useDispatch();
