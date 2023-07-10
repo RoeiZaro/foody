@@ -9,8 +9,10 @@ const client = createClient({
 });
 
 const builder = imageUrlBuilder(client);
+
 export const urlFor = (source) => builder.image(source);
 
 //NOTE: U NEED TO GIVE ACCESS VIA CORS TO THE BACKEND
+// check for online access in the future
 
 export default client;
