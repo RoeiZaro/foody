@@ -41,6 +41,7 @@ const RestaurantCard = ({
         });
       }}
     >
+      {/* if the logo is SVG based need this function (note that she doesnt work sometime and show blank area) */}
       {imgType == "svg" ? (
         getSvg(imgUri)
       ) : (
