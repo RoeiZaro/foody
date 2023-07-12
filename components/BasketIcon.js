@@ -13,6 +13,8 @@ const BasketIcon = () => {
   const navigation = useNavigation();
   const basketTotalPrice = useSelector(selectBasketTotalPrice);
 
+  if (items.length === 0) return null; // not displayed if there are no items
+
   return (
     <View className="absolute bottom-2 w-full z-50">
       <TouchableOpacity
