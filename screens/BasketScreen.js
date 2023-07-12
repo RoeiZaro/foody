@@ -95,10 +95,30 @@ const BasketScreen = () => {
           ))}
         </ScrollView>
 
-        <View>
-          <View>
-            <Text>Subtotal</Text>
-            <Text></Text>
+        <View className="p-5 bg-white mt-5 space-y-4">
+          <View className="flex-row justify-between">
+            <Text className="text-gray-400">Subtotal</Text>
+            <Text className="text-gray-400">
+              <Currency quantity={basketTotalPrice} Currency="ILS" />
+            </Text>
+          </View>
+        </View>
+
+        <View className="p-5 bg-white mt-5 space-y-4">
+          <View className="flex-row justify-between">
+            <Text className="text-gray-400">Delivery price</Text>
+            <Text className="text-gray-400">
+              <Currency quantity={19.99} Currency="ILS" />
+            </Text>
+          </View>
+        </View>
+
+        <View className="p-5 bg-white mt-5 space-y-4">
+          <View className="flex-row justify-between">
+            <Text className="">Combined price</Text>
+            <Text className="font-extrabold">
+              <Currency quantity={basketTotalPrice + 19.99} Currency="ILS" />
+            </Text>
           </View>
         </View>
       </View>
