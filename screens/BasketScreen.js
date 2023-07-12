@@ -95,7 +95,7 @@ const BasketScreen = () => {
           ))}
         </ScrollView>
 
-        <View className="p-5 bg-white mt-5 space-y-4">
+        <View className="p-2 bg-white border-t border-gray-400 space-y-4">
           <View className="flex-row justify-between">
             <Text className="text-gray-400">Subtotal</Text>
             <Text className="text-gray-400">
@@ -104,7 +104,7 @@ const BasketScreen = () => {
           </View>
         </View>
 
-        <View className="p-5 bg-white mt-5 space-y-4">
+        <View className="p-2 bg-white border-t border-gray-400 space-y-4">
           <View className="flex-row justify-between">
             <Text className="text-gray-400">Delivery price</Text>
             <Text className="text-gray-400">
@@ -113,7 +113,7 @@ const BasketScreen = () => {
           </View>
         </View>
 
-        <View className="p-5 bg-white mt-5 space-y-4">
+        <View className="p-2 bg-white border-t border-gray-400 space-y-4">
           <View className="flex-row justify-between">
             <Text className="">Combined price</Text>
             <Text className="font-extrabold">
@@ -121,6 +121,12 @@ const BasketScreen = () => {
             </Text>
           </View>
         </View>
+
+        <TouchableOpacity className="rounded-lg bg-[#00CCBB] p-4 mx-3">
+          <Text className="text-center text-white text-lg font-bold">
+            Place Order
+          </Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
