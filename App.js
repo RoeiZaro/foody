@@ -1,6 +1,7 @@
-import { StatusBar } from "expo-status-bar";
+import "react-native-gesture-handler"; // for new react-navigator
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createStackNavigator } from "@react-navigation/stack";
+import { TransitionPresets } from "@react-navigation/stack";
 import HomeScreen from "./screens/HomeScreen";
 import "react-native-url-polyfill/auto";
 import RestaurantScreen from "./screens/RestaurantScreen";
@@ -8,7 +9,7 @@ import { Provider } from "react-redux";
 import { store } from "./store";
 import BasketScreen from "./screens/BasketScreen";
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
@@ -26,7 +27,11 @@ export default function App() {
             component={RestaurantScreen}
           />
           <Stack.Screen
-            options={{ headerShown: false }}
+            options={{
+              headerShown: false,
+              ...TransitionPresets.ModalSlideFromBottomAndroid,
+              presentation: "modal",
+            }}
             name="Basket page"
             component={BasketScreen}
           />
