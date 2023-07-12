@@ -2,6 +2,7 @@ import { View, Text } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import * as Animatable from "react-native-animatable";
+import * as Progress from "react-native-progress";
 
 const PreparingOrderScreen = () => {
   return (
@@ -20,7 +21,8 @@ const PreparingOrderScreen = () => {
       >
         Waiting for restaurant to confirm the order
       </Animatable.Text>
-      <Text>PreparingOrderScreen</Text>
+
+      <Progress.Circle size={60} indeterminate={true} color="white" />
     </SafeAreaView>
   );
 };
