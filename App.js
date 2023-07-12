@@ -6,6 +6,7 @@ import "react-native-url-polyfill/auto";
 import RestaurantScreen from "./screens/RestaurantScreen";
 import { Provider } from "react-redux";
 import { store } from "./store";
+import BasketScreen from "./screens/BasketScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +24,11 @@ export default function App() {
             options={{ headerShown: false }}
             name="Restaurant page"
             component={RestaurantScreen}
+          />
+          <Stack.Screen
+            options={{ headerShown: false }}
+            name="Basket page"
+            component={BasketScreen}
           />
         </Stack.Navigator>
       </Provider>
