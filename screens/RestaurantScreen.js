@@ -13,6 +13,7 @@ import {
   QuestionMarkCircleIcon,
 } from "react-native-heroicons/outline";
 import DishRow from "../components/DishRow";
+import BasketIcon from "../components/BasketIcon";
 
 const RestaurantScreen = () => {
   const navigation = useNavigation();
@@ -32,6 +33,7 @@ const RestaurantScreen = () => {
   } = useRoute();
   return (
     <SafeAreaView>
+      <BasketIcon />
       <ScrollView>
         <View className="relative">
           <Image
