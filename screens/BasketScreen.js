@@ -33,7 +33,7 @@ const BasketScreen = () => {
   return (
     <SafeAreaView className="flex-1 bg-white">
       <View className="flex-1 bg-gray-100">
-        <View className="p-5 border-b border-[#00CCBB] bg-white shadow-xs">
+        <View className="p-5 border-b border-[#2394b0] bg-white shadow-xs">
           <View>
             <Text className="text-lg font-bold text-center">Basket</Text>
             <Text className="text-center text-gray-400">
@@ -45,7 +45,7 @@ const BasketScreen = () => {
             onPress={navigation.goBack}
             className="rounded-full bg-gray-100 absolute top-3 right-5 "
           >
-            <XCircleIcon color="#00CCBB" height={50} width={50} />
+            <XCircleIcon color="#2394b0" height={50} width={50} />
           </TouchableOpacity>
         </View>
 
@@ -60,7 +60,7 @@ const BasketScreen = () => {
           <Text className="flex-1">Deliver in 50-75 min</Text>
 
           <TouchableOpacity>
-            <Text className="text-[#00CCBB]">Change</Text>
+            <Text className="text-[#2394b0]">Change</Text>
           </TouchableOpacity>
         </View>
 
@@ -85,7 +85,7 @@ const BasketScreen = () => {
 
               <TouchableOpacity>
                 <Text
-                  className="text-[#00CCBB] text-xs"
+                  className="text-[#2394b0] text-xs"
                   onPress={() => dispatch(removeFromBasket({ id: key }))}
                 >
                   Remove
@@ -124,7 +124,7 @@ const BasketScreen = () => {
 
         <TouchableOpacity
           onPress={() => navigation.navigate("PreparingOrderScreen")}
-          className="rounded-lg bg-[#00CCBB] p-4 mx-3"
+          className="rounded-lg bg-[#2394b0] p-4 mx-3"
         >
           <Text className="text-center text-white text-lg font-bold">
             Place Order
