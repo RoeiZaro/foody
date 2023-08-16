@@ -45,10 +45,10 @@ const HomeScreen = () => {
           <Text className="font-bold text-gray-400 text-xs">Deliver Now!</Text>
           <Text className="font-bold text-xl">
             Current Location
-            <ChevronDownIcon size={20} color="#00CCBB" />
+            <ChevronDownIcon size={20} color="#2394b0" />
           </Text>
         </View>
-        <UserIcon size={35} color="#00CCBB" />
+        <UserIcon size={35} color="#2394b0" />
       </View>
 
       {/* search bar */}
@@ -58,7 +58,7 @@ const HomeScreen = () => {
           <TextInput placeholder="Restaurants" keyboardType="default" />
         </View>
 
-        <AdjustmentsHorizontalIcon color="#00CCBB" />
+        <AdjustmentsHorizontalIcon color="#2394b0" />
       </View>
 
       {/* body */}
