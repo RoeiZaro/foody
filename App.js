@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 import { store } from "./store";
 import BasketScreen from "./screens/BasketScreen";
 import PreparingOrderScreen from "./screens/PreparingOrderScreen";
+import Deliveryscreen from "./screens/Deliveryscreen";
 
 const Stack = createStackNavigator();
 
@@ -43,6 +44,14 @@ export default function App() {
             }}
             name="PreparingOrderScreen"
             component={PreparingOrderScreen}
+          />
+          <Stack.Screen
+            options={{
+              headerShown: false,
+              presentation: "fullScreenModal",
+            }}
+            name="Delivery"
+            component={Deliveryscreen}
           />
         </Stack.Navigator>
       </Provider>
