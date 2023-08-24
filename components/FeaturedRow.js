@@ -43,7 +43,7 @@ const FeaturedRow = ({ id, title, description, featuredCategory }) => {
         showsHorizontalScrollIndicator={false}
         className="pt-4"
       >
-        {restaurants.map((restaurant) => (
+        {restaurants?.map((restaurant) => (
           <RestaurantCard
             key={restaurant._id}
             id={restaurant._id}
