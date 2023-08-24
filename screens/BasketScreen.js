@@ -80,7 +80,7 @@ const BasketScreen = () => {
               <Text className="flex-1">{items[0]?.name}</Text>
 
               <Text className="text-gray-600 ">
-                <Currency quantity={items[0]?.price} Currency="ILS" />
+                <Currency quantity={items[0]?.price} currency="ILS" />
               </Text>
 
               <TouchableOpacity>
@@ -99,7 +99,7 @@ const BasketScreen = () => {
           <View className="flex-row justify-between">
             <Text className="text-gray-400">Subtotal</Text>
             <Text className="text-gray-400">
-              <Currency quantity={basketTotalPrice} Currency="ILS" />
+              <Currency quantity={basketTotalPrice} currency="ILS" />
             </Text>
           </View>
         </View>
@@ -108,7 +108,7 @@ const BasketScreen = () => {
           <View className="flex-row justify-between">
             <Text className="text-gray-400">Delivery price</Text>
             <Text className="text-gray-400">
-              <Currency quantity={19.99} Currency="ILS" />
+              <Currency quantity={19.99} currency="ILS" />
             </Text>
           </View>
         </View>
@@ -117,7 +117,7 @@ const BasketScreen = () => {
           <View className="flex-row justify-between">
             <Text className="">Combined price</Text>
             <Text className="font-extrabold">
-              <Currency quantity={basketTotalPrice + 19.99} Currency="ILS" />
+              <Currency quantity={basketTotalPrice + 19.99} currency="ILS" />
             </Text>
           </View>
         </View>
